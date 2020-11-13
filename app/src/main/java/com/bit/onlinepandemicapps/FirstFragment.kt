@@ -6,12 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.DatePicker
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.view.isVisible
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.getField
 import com.google.firebase.ktx.Firebase
@@ -45,17 +42,7 @@ class FirstFragment : Fragment() {
         val denggiCure = root.findViewById<TextView>(R.id.denggiCure)
         val denggiDeath = root.findViewById<TextView>(R.id.denggiDeath)
 
-        covidCase.text = "1000"
-        covidCure.text = "2000"
-        covidDeath.text = "3000"
-
-        malariaCase.text = "1000"
-        malariaCure.text = "2000"
-        malariaDeath.text = "3000"
-
-        denggiCase.text =  "1000"
-        denggiCure.text =  "2000"
-        denggiDeath.text = "3000"
+        val defaultDate = (activity as MainActivity).defaultDate
 
         fun showData(date : String) {
             db.collection("Case").document("$date")
@@ -89,7 +76,10 @@ class FirstFragment : Fragment() {
                 }
         }
 
-
+        if (!defaultDate.isNullOrEmpty()) {
+            dateSelect.text = defaultDate
+            showData(defaultDate)
+        }
 
         dateSelect.setOnClickListener {
             val cal = Calendar.getInstance()
@@ -102,6 +92,7 @@ class FirstFragment : Fragment() {
                 val selectedDate = "$d-${m+1}-$y"
                 dateSelect.text = selectedDate
                 showData(selectedDate)
+                (activity as MainActivity).defaultDate = selectedDate
             }, y,m,d)
             viewDate.show()
 
@@ -114,12 +105,12 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-
-        view.findViewById<Button>(R.id.onMyLocation).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_thirdFragment)
-        }
+//        view.findViewById<Button>(R.id.button_first).setOnClickListener {
+//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+//        }
+//
+//        view.findViewById<Button>(R.id.onMyLocation).setOnClickListener {
+//            findNavController().navigate(R.id.action_FirstFragment_to_thirdFragment)
+//        }
     }
 }
