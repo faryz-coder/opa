@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "669646453381",
+    "firebase_url": "https://pandemic-d6a02.firebaseio.com",
+    "project_id": "pandemic-d6a02",
+    "storage_bucket": "pandemic-d6a02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669646453381:android:f5225f156e84b493e987ec",
+        "android_client_info": {
+          "package_name": "com.bit.onlinepandemicapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669646453381-gbu0comsc4hjmv1fg4hg4957n0ap28l7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbVnfZJPllRiRiJe742h397O2-7JGfgh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669646453381-gbu0comsc4hjmv1fg4hg4957n0ap28l7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
